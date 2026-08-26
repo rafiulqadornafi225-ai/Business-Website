@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProjectVault — Frontend Project Showcase</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Inter, sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, .75);
+            backdrop-filter: blur(18px);
+        }
+
+        .dark .glass {
+            background: rgba(15, 23, 42, .75);
+        }
+
+        .project-card {
+            transition: .3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-image {
+            transition: transform .5s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white">
+
+    <!-- NAVBAR -->
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-5 pt-4">
+
+            <nav
+                class="glass border border-white/40 dark:border-slate-800 shadow-lg rounded-2xl px-5 py-3 flex items-center justify-between">
+
+                <a href="#" class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 text-white flex items-center justify-center font-black">
+                        P
+                    </div>
+
+                    <div>
+                        <h1 class="font-black">PROJECT WEB</h1>
+                        <p class="text-[9px] tracking-widest text-slate-400 uppercase">
+                            Frontend Showcase
+                        </p>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+                    <a href="#projects">Projects</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="flex gap-2">
+                    <button onclick="toggleTheme()"
+                        class="w-10 h-10 border border-slate-200 dark:border-slate-700 rounded-xl">
+                        ◐
+                    </button>
+
+                    <a href="#contact"
+                        class="hidden sm:block bg-slate-900 dark:bg-white text-white dark:text-slate-950 px-5 py-2.5 rounded-xl text-sm font-bold">
+                        Hire
+                    </a>
+                </div>
+
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+
+        <div class="absolute w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-[120px] -left-52 top-20"></div>
+        <div class="absolute w-[500px] h-[500px] bg-pink-500/20 rounded-full blur-[120px] -right-52 top-40"></div>
+
+        <div class="relative max-w-7xl mx-auto px-5 pt-32 pb-20 w-full">
+
+            <div class="max-w-4xl">
+
+                <span
+                    class="inline-flex px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">
+                    AVAILABLE FOR NEW PROJECTS
+                </span>
+
+                <h1 class="text-5xl sm:text-6xl lg:text-8xl font-black tracking-[-.05em] leading-[1] mt-7">
+                    We build digital
+                    <span class="gradient-text">
+                        experiences.
+                    </span>
+                </h1>
+
+                <p class="text-slate-500 dark:text-slate-400 max-w-2xl text-lg leading-8 mt-7">
+                    A collection of our frontend projects, business websites,
+                    landing pages, dashboards and interactive web experiences.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-3 mt-9">
+
+                    <a href="#projects"
+                        class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-7 py-4 rounded-2xl font-bold text-center">
+                        Explore Projects →
+                    </a>
+
+                    <a href="#contact"
+                        class="border border-slate-300 dark:border-slate-700 px-7 py-4 rounded-2xl font-bold text-center">
+                        Start a Project
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- STATS -->
+    <section class="pb-24">
+        <div class="max-w-7xl mx-auto px-5">
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <h3 id="projectCount" class="text-4xl font-black">0</h3>
+                    <p class="text-sm text-slate-400 mt-1">Projects</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <h3 class="text-4xl font-black">100%</h3>
+                    <p class="text-sm text-slate-400 mt-1">Responsive</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <h3 class="text-4xl font-black">24/7</h3>
+                    <p class="text-sm text-slate-400 mt-1">Live Demos</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <h3 class="text-4xl font-black">∞</h3>
+                    <p class="text-sm text-slate-400 mt-1">Future Projects</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24 bg-white dark:bg-slate-900/30">
+
+        <div class="max-w-7xl mx-auto px-5">
+
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+
+                <div>
+                    <p class="text-indigo-600 dark:text-indigo-400 font-bold text-sm">
+                        PROJECT LIBRARY
+                    </p>
+
+                    <h2 class="text-4xl sm:text-5xl font-black mt-3">
+                        Explore my latest
+                        <span class="gradient-text">work.</span>
+                    </h2>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3">
+
+                    <input id="searchInput" type="text" placeholder="Search projects..."
+                        class="bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 outline-none" />
+
+                    <select id="categoryFilter"
+                        class="bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3">
+                        <option value="All">All Projects</option>
+                        <option value="Landing Page">Landing Page</option>
+                        <option value="E-commerce">E-commerce</option>
+                        <option value="Dashboard">Dashboard</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Business">Business</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div id="projectGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14"></div>
+
+        </div>
+    </section>
+
+
+    <!-- BUSINESS SECTION -->
+    <section id="services" class="py-24">
+
+        <div class="max-w-7xl mx-auto px-5">
+
+            <div class="max-w-3xl">
+                <p class="text-indigo-600 dark:text-indigo-400 font-bold text-sm">
+                    WHAT WE CAN BUILD
+                </p>
+
+                <h2 class="text-4xl sm:text-5xl font-black mt-3">
+                    Need something
+                    <span class="gradient-text">
+                        similar?
+                    </span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
+
+                <div class="p-7 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <div class="text-3xl">🌐</div>
+                    <h3 class="font-bold text-lg mt-5">
+                        Business Website
+                    </h3>
+                    <p class="text-sm text-slate-500 mt-3 leading-6">
+                        Professional websites for companies and personal brands.
+                    </p>
+                </div>
+
+                <div class="p-7 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <div class="text-3xl">🛒</div>
+                    <h3 class="font-bold text-lg mt-5">
+                        E-commerce
+                    </h3>
+                    <p class="text-sm text-slate-500 mt-3 leading-6">
+                        Modern product stores and shopping interfaces.
+                    </p>
+                </div>
+
+                <div class="p-7 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <div class="text-3xl">📊</div>
+                    <h3 class="font-bold text-lg mt-5">
+                        Dashboard
+                    </h3>
+                    <p class="text-sm text-slate-500 mt-3 leading-6">
+                        Admin panels and business management dashboards.
+                    </p>
+                </div>
+
+                <div class="p-7 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <div class="text-3xl">🚀</div>
+                    <h3 class="font-bold text-lg mt-5">
+                        Landing Page
+                    </h3>
+                    <p class="text-sm text-slate-500 mt-3 leading-6">
+                        High-converting pages for products, services and campaigns.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 bg-slate-100 dark:bg-slate-900/40">
+
+        <div class="max-w-7xl mx-auto px-5">
+
+            <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+                <div>
+
+                    <!-- YOUR IMAGE HERE -->
+
+
+                    <div
+                        class="aspect-square max-w-md rounded-[60px] bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-8xl font-black overflow-hidden">
+
+                        <img src="./WhatsApp Image 2026-08-26 at 10.18.55 AM.jpeg" alt="Nafi Web Solution"
+                            class="w-full h-full object-cover" />
+
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <p class="text-indigo-600 dark:text-indigo-400 font-bold text-sm">
+                        ABOUT THE DEVELOPER
+                    </p>
+
+                    <h2 class="text-4xl sm:text-5xl font-black mt-4">
+                        Frontend developer focused on
+                        <span class="gradient-text">
+                            great experiences.
+                        </span>
+                    </h2>
+
+                    <p class="text-slate-500 dark:text-slate-400 leading-8 mt-6">
+                        We design and develop responsive websites, landing pages,
+                        business interfaces and interactive frontend projects.
+                        This platform works as both our portfolio and our public demo library.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mt-7">
+                        <span class="px-4 py-2 bg-white dark:bg-slate-900 rounded-full text-sm">HTML</span>
+                        <span class="px-4 py-2 bg-white dark:bg-slate-900 rounded-full text-sm">CSS</span>
+                        <span class="px-4 py-2 bg-white dark:bg-slate-900 rounded-full text-sm">Tailwind CSS</span>
+                        <span class="px-4 py-2 bg-white dark:bg-slate-900 rounded-full text-sm">JavaScript</span>
+                        <span class="px-4 py-2 bg-white dark:bg-slate-900 rounded-full text-sm">Responsive UI</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24">
+
+        <div class="max-w-7xl mx-auto px-5">
+
+            <div class="relative overflow-hidden bg-slate-950 text-white rounded-[40px] p-8 sm:p-14 lg:p-20">
+
+                <div class="absolute w-[400px] h-[400px] bg-indigo-600/30 blur-[100px] rounded-full -left-40 -top-40">
+                </div>
+                <div class="absolute w-[400px] h-[400px] bg-pink-600/20 blur-[100px] rounded-full -right-40 -bottom-40">
+                </div>
+
+                <div class="relative max-w-3xl">
+
+                    <p class="text-indigo-300 font-bold text-sm">
+                        START A PROJECT
+                    </p>
+
+                    <h2 class="text-4xl sm:text-6xl font-black mt-4">
+                        Have an idea?
+                        Let's build it.
+                    </h2>
+
+                    <p class="text-slate-400 mt-5 leading-7 max-w-xl">
+                        If you need a website, landing page, dashboard or custom frontend
+                        project, contact us and let's discuss your idea.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3 mt-8">
+
+                        <a href="rafiulqadornafi225@email.com"
+                            class="bg-white text-slate-950 px-6 py-3 rounded-xl font-bold">
+                            Email Me
+                        </a>
+
+                        <a href="https://wa.me/qr/MV2Z72HWCIQZD1" target="_blank"
+                            class="border border-slate-700 px-6 py-3 rounded-xl font-bold">
+                            WhatsApp
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-8">
+        <div class="max-w-7xl mx-auto px-5 flex flex-col sm:flex-row justify-between gap-3 text-sm text-slate-400">
+
+            <p>
+                © 2026 ProjectVault. All rights reserved.
+            </p>
+
+
+        </div>
+    </footer>
+
+
+    <!-- PROJECT MODAL -->
+    <div id="projectModal"
+        class="fixed inset-0 z-[100] bg-slate-950/70 backdrop-blur hidden items-center justify-center p-4">
+
+        <div class="max-w-lg w-full bg-white dark:bg-slate-900 rounded-3xl overflow-hidden">
+
+            <img id="modalImage" class="w-full h-64 object-cover" />
+
+            <div class="p-7">
+
+                <div class="flex justify-between gap-4">
+
+                    <div>
+                        <p id="modalCategory" class="text-indigo-500 text-xs font-bold"></p>
+                        <h3 id="modalTitle" class="text-2xl font-black mt-2"></h3>
+                    </div>
+
+                    <button onclick="closeProjectModal()" class="w-9 h-9 bg-slate-100 dark:bg-slate-800 rounded-xl">
+                        ✕
+                    </button>
+
+                </div>
+
+                <p id="modalDescription" class="text-slate-500 dark:text-slate-400 mt-5 leading-7"></p>
+
+                <div id="modalTech" class="flex flex-wrap gap-2 mt-5"></div>
+
+                <a id="modalLink" target="_blank"
+                    class="block mt-7 bg-indigo-600 text-white text-center py-3.5 rounded-xl font-bold">
+                    Open Live Demo →
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+
+        /* ======================================================
+           ADD ALL YOUR PROJECTS HERE
+        ====================================================== */
+
+        const projects = [
+
+            {
+                title: "Modern E-commerce Store",
+
+                category: "E-commerce",
+
+                description:
+                    "A responsive modern online store with product cards, categories and interactive shopping UI.",
+
+                technologies: [
+
+                ],
+
+
+                image:
+                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+
+                live:
+                    "https://remix-remix-nafi-jersey-house-3144.ai.studio/"
+            },
+
+
+            {
+                title: "Business Landing Page",
+
+                category: "Landing Page",
+
+                description:
+                    "A premium conversion-focused landing page designed for a modern digital business.",
+
+                technologies: [
+
+                ],
+
+
+
+                image:
+                    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+
+                live:
+                    "https://e-commerce-website-fruits.vercel.app/"
+            },
+
+
+            {
+                title: "Saas Admin Dashboard",
+
+                category: "Dashboard",
+
+                description:
+                    "A clean analytics dashboard with statistics, reports and responsive admin components.",
+
+
+                technologies: [
+
+                ],
+
+
+                image:
+                    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+
+                live:
+                    "https://iridescent-genie-837f83.netlify.app/"
+            },
+
+            {
+                title: "Student Task management System Website",
+
+                category: "Business",
+
+                description:
+                    "Here you can include all Student Task data like Complete,Total,Pending .",
+                technologies: [
+
+                ],
+
+
+
+                image:
+                    "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1200&q=80",
+
+                live:
+                    "https://ubiquitous-salmiakki-52d05c.netlify.app/"
+            },
+
+
+            {
+                title: "Startup Website",
+
+                category: "Landing Page",
+
+                description:
+                    "A futuristic startup website featuring responsive sections, pricing .",
+
+                technologies: [
+
+                ],
+
+                image:
+                    "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80",
+
+                live:
+                    "https://gorgeous-mooncake-56794c.netlify.app/"
+            },
+
+
+        ];
+
+
+        /* ======================================================
+           PROJECT RENDERING
+        ====================================================== */
+
+        const projectGrid =
+            document.getElementById("projectGrid");
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const categoryFilter =
+            document.getElementById("categoryFilter");
+
+
+        document.getElementById(
+            "projectCount"
+        ).textContent = projects.length;
+
+
+        function renderProjects() {
+
+            const search =
+                searchInput.value.toLowerCase();
+
+            const category =
+                categoryFilter.value;
+
+
+            const filtered =
+                projects.filter(project => {
+
+                    const matchesSearch =
+                        project.title
+                            .toLowerCase()
+                            .includes(search) ||
+
+                        project.description
+                            .toLowerCase()
+                            .includes(search);
+
+
+                    const matchesCategory =
+                        category === "All" ||
+                        project.category === category;
+
+
+                    return (
+                        matchesSearch &&
+                        matchesCategory
+                    );
+
+                });
+
+
+            projectGrid.innerHTML = "";
+
+
+            if (!filtered.length) {
+
+                projectGrid.innerHTML = `
+
+      <div class="col-span-full text-center py-20">
+
+        <p class="text-2xl font-bold">
+          No projects found.
+        </p>
+
+        <p class="text-slate-400 mt-2">
+          Try another search or category.
+        </p>
+
+      </div>
+
+    `;
+
+                return;
+            }
+
+
+            filtered.forEach((project) => {
+
+                const index =
+                    projects.indexOf(project);
+
+
+                const card =
+                    document.createElement("article");
+
+
+                card.className = `
+      project-card
+      bg-slate-50
+      dark:bg-slate-900
+      border
+      border-slate-200
+      dark:border-slate-800
+      rounded-3xl
+      overflow-hidden
+      shadow-sm
+    `;
+
+
+                card.innerHTML = `
+
+      <div class="overflow-hidden">
+
+        <img
+          src="${project.image}"
+          alt="${project.title}"
+          class="
+            project-image
+            w-full
+            h-56
+            object-cover
+          "
+        >
+
+      </div>
+
+
+      <div class="p-6">
+
+        <span
+          class="
+            text-[11px]
+            font-bold
+            uppercase
+            text-indigo-500
+          "
+        >
+          ${project.category}
+        </span>
+
+
+        <h3
+          class="
+            text-xl
+            font-black
+            mt-2
+          "
+        >
+          ${project.title}
+        </h3>
+
+
+        <p
+          class="
+            text-sm
+            text-slate-500
+            dark:text-slate-400
+            mt-3
+            leading-6
+          "
+        >
+          ${project.description}
+        </p>
+
+
+        <div
+          class="
+            flex
+            flex-wrap
+            gap-2
+            mt-5
+          "
+        >
+
+          ${project.technologies
+                        .map(
+                            tech => `
+                <span
+                  class="
+                    text-[10px]
+                    px-3
+                    py-1.5
+                    rounded-full
+                    bg-white
+                    dark:bg-slate-800
+                    border
+                    border-slate-200
+                    dark:border-slate-700
+                  "
+                >
+                  ${tech}
+                </span>
+              `
+                        )
+                        .join("")
+                    }
+
+        </div>
+
+
+        <div
+          class="
+            flex
+            gap-2
+            mt-6
+          "
+        >
+
+          <a
+            href="${project.live}"
+            target="_blank"
+            class="
+              flex-1
+              text-center
+              bg-slate-900
+              dark:bg-white
+              text-white
+              dark:text-slate-950
+              py-3
+              rounded-xl
+              font-bold
+              text-sm
+            "
+          >
+            Live Demo
+          </a>
+
+
+          <button
+            onclick="openProjectModal(${index})"
+            class="
+              px-4
+              py-3
+              rounded-xl
+              border
+              border-slate-300
+              dark:border-slate-700
+              font-bold
+            "
+          >
+            Details
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+                projectGrid.appendChild(card);
+
+            });
+
+        }
+
+
+        searchInput.addEventListener(
+            "input",
+            renderProjects
+        );
+
+
+        categoryFilter.addEventListener(
+            "change",
+            renderProjects
+        );
+
+
+        renderProjects();
+
+
+
+        /* ======================================================
+           PROJECT MODAL
+        ====================================================== */
+
+        function openProjectModal(index) {
+
+            const project =
+                projects[index];
+
+
+            document.getElementById(
+                "modalImage"
+            ).src = project.image;
+
+
+            document.getElementById(
+                "modalTitle"
+            ).textContent = project.title;
+
+
+            document.getElementById(
+                "modalCategory"
+            ).textContent = project.category;
+
+
+            document.getElementById(
+                "modalDescription"
+            ).textContent = project.description;
+
+
+            document.getElementById(
+                "modalLink"
+            ).href = project.live;
+
+
+            document.getElementById(
+                "modalTech"
+            ).innerHTML =
+                project.technologies
+                    .map(
+                        tech => `
+          <span
+            class="
+              px-3
+              py-1.5
+              rounded-full
+              bg-slate-100
+              dark:bg-slate-800
+              text-xs
+            "
+          >
+            ${tech}
+          </span>
+        `
+                    )
+                    .join("");
+
+
+            const modal =
+                document.getElementById(
+                    "projectModal"
+                );
+
+
+            modal.classList.remove(
+                "hidden"
+            );
+
+
+            modal.classList.add(
+                "flex"
+            );
+
+
+            document.body.style.overflow =
+                "hidden";
+
+        }
+
+
+        function closeProjectModal() {
+
+            const modal =
+                document.getElementById(
+                    "projectModal"
+                );
+
+
+            modal.classList.add(
+                "hidden"
+            );
+
+
+            modal.classList.remove(
+                "flex"
+            );
+
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+
+
+        /* ======================================================
+           DARK MODE
+        ====================================================== */
+
+        function toggleTheme() {
+
+            document.documentElement
+                .classList
+                .toggle("dark");
+
+
+            localStorage.setItem(
+
+                "portfolio-theme",
+
+                document.documentElement
+                    .classList
+                    .contains("dark")
+                    ? "dark"
+                    : "light"
+
+            );
+
+        }
+
+
+        if (
+            localStorage.getItem(
+                "portfolio-theme"
+            ) === "dark"
+        ) {
+
+            document.documentElement
+                .classList
+                .add("dark");
+
+        }
+
+    </script>
+
+</body>
+
+</html>

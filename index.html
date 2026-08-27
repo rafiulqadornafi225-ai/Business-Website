@@ -68,40 +68,48 @@
 
     <!-- NAVBAR -->
     <header class="fixed top-0 left-0 right-0 z-50">
-        <div class="max-w-7xl mx-auto px-5 pt-4">
+        <div class="max-w-7xl mx-auto px-3 sm:px-5 pt-4">
 
             <nav
-                class="glass border border-white/40 dark:border-slate-800 shadow-lg rounded-2xl px-5 py-3 flex items-center justify-between">
+                class="glass border border-white/40 dark:border-slate-800 shadow-lg rounded-2xl px-3 sm:px-5 py-3 flex items-center justify-between">
 
-                <a href="#" class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-slate-950">
-                        <img src="./KK Lg.jpeg" alt="NW Logo" class="w-full h-full object-cover">
+                <!-- NW Logo & Brand Section -->
+                <a href="#" class="flex items-center gap-2.5 sm:gap-3 group">
+                    <!-- লোগো ইমেজ বক্স -->
+                    <div
+                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden flex items-center justify-center bg-slate-950 border border-slate-800 shadow-sm relative">
+                        <img src="./KK Lg.jpeg" alt="NW Logo" class="w-full h-full object-cover scale-[1.1]">
                     </div>
+
+                    <!-- ব্র্যান্ড নেম (NAFI WEB) -->
                     <div>
-                        <h1 class="font-black tracking-tight text-slate-950 dark:text-white">
+                        <h1 class="font-black text-sm sm:text-base tracking-tight text-slate-950 dark:text-white">
                             NAFI <span class="text-blue-500">WEB</span>
                         </h1>
-                        <p class="text-[9px] tracking-widest text-slate-400 uppercase font-semibold">
+                        <p class="text-[7px] sm:text-[9px] tracking-widest text-slate-400 uppercase font-semibold">
                             Frontend Showcase
                         </p>
                     </div>
                 </a>
 
-                <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+                <!-- Menu Links -->
+                <div class="flex items-center gap-3 sm:gap-7 text-xs sm:text-sm font-medium">
                     <a href="#projects" class="hover:text-indigo-600 transition-colors">Projects</a>
-                    <a href="#services" class="hover:text-indigo-600 transition-colors">Services</a>
+                    <a href="#services"
+                        class="inline-block hover:text-indigo-600 transition-colors">Services</a>
                     <a href="#about" class="hover:text-indigo-600 transition-colors">About</a>
                     <a href="#contact" class="hover:text-indigo-600 transition-colors">Contact</a>
                 </div>
 
-                <div class="flex gap-2 items-center">
+                <!-- Right Side Actions (Theme Toggle & Hire Button) -->
+                <div class="flex gap-1.5 sm:gap-2 items-center">
                     <button onclick="toggleTheme()"
-                        class="w-10 h-10 border border-slate-200 dark:border-slate-700 rounded-xl flex items-center justify-center">
+                        class="w-9 h-9 sm:w-10 sm:h-10 border border-slate-200 dark:border-slate-700 rounded-xl flex items-center justify-center text-sm">
                         ◐
                     </button>
 
                     <a href="#contact"
-                        class="hidden sm:block bg-slate-900 dark:bg-white text-white dark:text-slate-950 px-5 py-2.5 rounded-xl text-sm font-bold">
+                        class="bg-slate-900 dark:bg-white text-white dark:text-slate-950 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold">
                         Hire
                     </a>
                 </div>
@@ -110,7 +118,6 @@
 
         </div>
     </header>
-
 
     <!-- HERO -->
     <section class="relative min-h-screen flex items-center overflow-hidden">

@@ -78,8 +78,10 @@
                         <img src="./KK Lg.jpeg" alt="NW Logo" class="w-full h-full object-cover">
                     </div>
                     <div>
-                        <h1 class="font-black text-slate-950 dark:text-white">NAFI WEB</h1>
-                        <p class="text-[9px] tracking-widest text-slate-400 uppercase">
+                        <h1 class="font-black tracking-tight text-slate-950 dark:text-white">
+                            NAFI <span class="text-blue-500">WEB</span>
+                        </h1>
+                        <p class="text-[9px] tracking-widest text-slate-400 uppercase font-semibold">
                             Frontend Showcase
                         </p>
                     </div>
@@ -334,11 +336,11 @@
                         This platform works as both our portfolio and our public demo library.
                     </p>
 
-                  
+
+
+                </div>
 
             </div>
-
-        </div>
     </section>
 
 
@@ -418,7 +420,8 @@
                         <h3 id="modalTitle" class="text-2xl font-black mt-2"></h3>
                     </div>
 
-                    <button onclick="closeProjectModal()" class="w-9 h-9 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center">
+                    <button onclick="closeProjectModal()"
+                        class="w-9 h-9 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center">
                         ✕
                     </button>
 
@@ -481,7 +484,23 @@
                 image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80",
                 live: "https://gorgeous-mooncake-56794c.netlify.app/"
             },
-        ];
+            {
+                title: "Personal Portfolio",
+                category: "Business",
+                description: "A clean analytics dashboard with statistics, reports and responsive admin components.",
+                technologies: [],
+                image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=1200&q=80",
+                live: "https://rafiulqadornafi225-ai.github.io/MY-Portfolio-Website/"
+            },
+            {
+                title: "Daily Planner Web Apps",
+                category: "Business",
+                description: "Here you can add your regular Daily Routine and Time.",
+                technologies: [],
+                image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1200&q=80",
+                live: "https://dainty-horse-679463.netlify.app/"
+            },
+        ]
 
         const projectGrid = document.getElementById("projectGrid");
         const searchInput = document.getElementById("searchInput");
@@ -549,7 +568,7 @@
             document.getElementById("modalDescription").textContent = project.description;
             document.getElementById("modalLink").href = project.live;
             document.getElementById("modalTech").innerHTML = project.technologies.map(tech => `<span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-xs">${tech}</span>`).join("");
-            
+
             const modal = document.getElementById("projectModal");
             modal.classList.remove("hidden");
             modal.classList.add("flex");

@@ -70,19 +70,16 @@
         <div class="max-w-7xl mx-auto px-3 sm:px-5 pt-4">
 
             <nav
-                class="glass border border-white/40 dark:border-slate-800 shadow-lg rounded-2xl px-3 sm:px-5 py-3 flex items-center justify-between">
+                class="glass border border-white/40 dark:border-slate-800 shadow-lg rounded-2xl px-3 sm:px-5 py-3 flex items-center justify-between relative">
 
                 <!-- NW Logo & Brand Section -->
                 <a href="#" class="flex items-center gap-3 sm:gap-4 group">
-
-                    <!-- লোগো বক্স এবং ইমেজ অংশ (মোবাইলে হাইট বাড়িয়ে বড় করার জন্য) -->
                     <div
                         class="relative w-14 h-11 sm:w-16 sm:h-12 rounded-xl overflow-hidden flex items-center justify-center bg-slate-900 border border-slate-700 shadow-sm flex-shrink-0">
                         <img src="./cde1f4f3-8b5b-491c-99b4-1219dad1aeee.jpg" alt="NW Logo"
                             class="w-full h-full object-cover">
                     </div>
 
-                    <!-- ব্র্যান্ড নেম (NAFI WEB) -->
                     <div>
                         <h1
                             class="font-black text-sm sm:text-base tracking-tight text-slate-950 dark:text-white leading-tight">
@@ -95,28 +92,69 @@
                     </div>
                 </a>
 
-                <!-- Menu Links -->
-                <div
-                    class="flex items-center gap-3 sm:gap-7 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">
+                <!-- Desktop Menu Links (পিসিতে সোজা শো করবে, মোবাইলে hidden থাকবে) -->
+                <div class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-700 dark:text-slate-200">
                     <a href="#projects"
                         class="hover:text-indigo-600 dark:hover:text-white transition-colors">Projects</a>
                     <a href="#services"
-                        class="inline-block hover:text-indigo-600 dark:hover:text-white transition-colors">Services</a>
+                        class="hover:text-indigo-600 dark:hover:text-white transition-colors">Services</a>
                     <a href="#about" class="hover:text-indigo-600 dark:hover:text-white transition-colors">About</a>
                     <a href="#contact" class="hover:text-indigo-600 dark:hover:text-white transition-colors">Contact</a>
                 </div>
 
-                <!-- Right Side Actions (Theme Toggle & Hire Button) -->
-                <div class="flex gap-1.5 sm:gap-2 items-center">
+                <!-- Right Side Actions (Theme Toggle & Mobile Menu Toggle) -->
+                <div class="flex gap-2 items-center">
+                    <!-- Updated Theme Toggle Button -->
                     <button onclick="toggleTheme()"
-                        class="w-9 h-9 sm:w-10 sm:h-10 border border-slate-200 dark:border-slate-700 rounded-xl flex items-center justify-center text-sm bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                        ◐
+                        class="w-9 h-9 sm:w-10 sm:h-10 border border-slate-200 dark:border-slate-700 rounded-xl flex items-center justify-center bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all shadow-sm group">
+                        <!-- Moon Icon (Light Mode এ দেখাবে) -->
+                        <svg class="w-4 h-4 text-slate-700 dark:hidden" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                        </svg>
+                        <!-- Sun Icon (Dark Mode এ দেখাবে) -->
+                        <svg class="w-4 h-4 text-yellow-400 hidden dark:block" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
                     </button>
 
-                    
+                    <a href="#contact"
+                        class="hidden sm:inline-block bg-slate-900 dark:bg-white text-white dark:text-slate-950 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold hover:scale-105 transition-transform">
+                        Hire
+                    </a>
+
+                    <!-- Mobile Hamburger Button -->
+                    <button onclick="toggleMobileMenu()"
+                        class="md:hidden w-9 h-9 border border-slate-200 dark:border-slate-700 rounded-xl flex items-center justify-center text-base bg-white dark:bg-slate-950 text-slate-800 dark:text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
                 </div>
 
             </nav>
+
+            <!-- Mobile Dropdown Menu (মোবাইলে থ্রি-ডট আইকনে ক্লিক করলে এই বক্সটি নিচে নামবে) -->
+            <div id="mobileMenu"
+                class="hidden md:hidden mt-2 glass border border-white/40 dark:border-slate-800 shadow-xl rounded-2xl p-4 flex flex-col gap-3 text-sm font-medium text-slate-700 dark:text-slate-200 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md">
+                <a href="#projects" onclick="toggleMobileMenu()"
+                    class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors">Projects</a>
+                <a href="#services" onclick="toggleMobileMenu()"
+                    class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors">Services</a>
+                <a href="#about" onclick="toggleMobileMenu()"
+                    class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors">About</a>
+                <a href="#contact" onclick="toggleMobileMenu()"
+                    class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors">Contact</a>
+                <a href="#contact" onclick="toggleMobileMenu()"
+                    class="w-full text-center bg-slate-900 dark:bg-white text-white dark:text-slate-950 py-2.5 rounded-xl font-bold mt-1">
+                    Hire
+                </a>
+            </div>
 
         </div>
     </header>
@@ -451,6 +489,14 @@
 
 
     <script>
+        // মোবাইল মেনু টগল করার ফাংশন
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+
         const projects = [
             {
                 title: "Modern E-commerce Store",
